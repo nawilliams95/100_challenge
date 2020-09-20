@@ -1,0 +1,258 @@
+  [1m[35m (295.9ms)[0m  [1m[35mCREATE DATABASE "regftr_development" ENCODING = 'unicode'[0m
+  [1m[35m (141.5ms)[0m  [1m[35mCREATE DATABASE "regftr_test" ENCODING = 'unicode'[0m
+  [1m[35m (31.1ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" character varying NOT NULL PRIMARY KEY)[0m
+  [1m[35m (50.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" character varying NOT NULL PRIMARY KEY, "value" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (8.8ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2352089463693337305)[0m
+  [1m[35m (0.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateGifts (20200919172720)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (41.5ms)[0m  [1m[35mCREATE TABLE "gifts" ("id" bigserial primary key, "name" character varying, "value" float, "event" character varying, "gift_giver" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (1.0ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200919172720"]]
+  [1m[35m (1.7ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (1.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mActiveRecord::InternalMetadata Create (17.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES ($1, $2, $3, $4) RETURNING "key"[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-09-19 17:28:14.078950"], ["updated_at", "2020-09-19 17:28:14.078950"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.7ms)[0m  [1m[34mSELECT pg_advisory_unlock(2352089463693337305)[0m
+  [1m[35m (3.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGift Create (1.3ms)[0m  [1m[32mINSERT INTO "gifts" ("name", "value", "event", "gift_giver", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Office Space DVD"], ["value", 4.19], ["event", "Birthday"], ["gift_giver", "Random Coworker"], ["created_at", "2020-09-19 17:28:51.179217"], ["updated_at", "2020-09-19 17:28:51.179217"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGift Create (0.4ms)[0m  [1m[32mINSERT INTO "gifts" ("name", "value", "event", "gift_giver", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Potpourri"], ["value", 4.99], ["event", "Christmas"], ["gift_giver", "Aunt Tilda"], ["created_at", "2020-09-19 17:28:51.186852"], ["updated_at", "2020-09-19 17:28:51.186852"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGift Create (0.4ms)[0m  [1m[32mINSERT INTO "gifts" ("name", "value", "event", "gift_giver", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Scented Peach Candle"], ["value", 9.99], ["event", "Christmas"], ["gift_giver", "Mom"], ["created_at", "2020-09-19 17:28:51.192792"], ["updated_at", "2020-09-19 17:28:51.192792"]]
+  [1m[35m (1.6ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mGift Create (0.5ms)[0m  [1m[32mINSERT INTO "gifts" ("name", "value", "event", "gift_giver", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Vintage Snuggie"], ["value", 13.79], ["event", "Name Day"], ["gift_giver", "Weird Neighbor"], ["created_at", "2020-09-19 17:28:51.198465"], ["updated_at", "2020-09-19 17:28:51.198465"]]
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/" for ::1 at 2020-09-19 13:34:08 -0400
+  [1m[35m (1.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/karri/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.0.3.3/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/karri/.rbenv/versions/2.7.1/lib/ruby/gems/2.7.0/gems/railties-6.0.3.3/lib/rails/templates/rails/welcome/index.html.erb (Duration: 21.4ms | Allocations: 409)
+Completed 200 OK in 70ms (Views: 36.0ms | ActiveRecord: 0.0ms | Allocations: 2255)
+
+
+Started GET "/gifts" for ::1 at 2020-09-19 13:34:14 -0400
+Processing by GiftsController#index as HTML
+  [1m[36mGift Load (3.7ms)[0m  [1m[34mSELECT "gifts".* FROM "gifts"[0m
+  ↳ app/controllers/gifts_controller.rb:8:in `index'
+Completed 200 OK in 90ms (Views: 33.7ms | ActiveRecord: 50.4ms | Allocations: 5981)
+
+
+Started GET "/gifts" for ::1 at 2020-09-19 13:36:36 -0400
+Processing by GiftsController#index as HTML
+  [1m[36mGift Load (0.4ms)[0m  [1m[34mSELECT "gifts".* FROM "gifts"[0m
+  ↳ app/controllers/gifts_controller.rb:8:in `index'
+Completed 200 OK in 42ms (Views: 16.0ms | ActiveRecord: 24.5ms | Allocations: 5391)
+
+
+Started GET "/gifts/1" for ::1 at 2020-09-19 13:36:41 -0400
+Processing by GiftsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mGift Load (0.5ms)[0m  [1m[34mSELECT "gifts".* FROM "gifts" WHERE "gifts"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/gifts_controller.rb:15:in `show'
+Completed 200 OK in 61ms (Views: 0.7ms | ActiveRecord: 9.1ms | Allocations: 1177)
+
+
+Started POST "/gifts" for ::1 at 2020-09-19 14:05:55 -0400
+Processing by GiftsController#create as */*
+  Parameters: {"gift"=>{"name"=>"Box of Wine", "value"=>"28.75", "event"=>"Christmas", "gift_giver"=>"Co-Worker"}}
+Completed 400 Bad Request in 14ms (ActiveRecord: 0.0ms | Allocations: 410)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: song):
+  
+app/controllers/gifts_controller.rb:36:in `gift_params'
+app/controllers/gifts_controller.rb:23:in `create'
+Started POST "/gifts" for ::1 at 2020-09-19 14:07:38 -0400
+Processing by GiftsController#create as */*
+  Parameters: {"gift"=>{"name"=>"Box of Wine", "value"=>"28.75", "event"=>"Christmas", "gift_giver"=>"Co-Worker"}}
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gifts_controller.rb:25:in `create'
+  [1m[36mGift Create (1.6ms)[0m  [1m[32mINSERT INTO "gifts" ("name", "value", "event", "gift_giver", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Box of Wine"], ["value", 28.75], ["event", "Christmas"], ["gift_giver", "Co-Worker"], ["created_at", "2020-09-19 18:07:38.301989"], ["updated_at", "2020-09-19 18:07:38.301989"]]
+  ↳ app/controllers/gifts_controller.rb:25:in `create'
+  [1m[35m (93.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gifts_controller.rb:25:in `create'
+Completed 200 OK in 148ms (Views: 0.9ms | ActiveRecord: 115.7ms | Allocations: 6870)
+
+
+Started PUT "/gifts/2" for ::1 at 2020-09-19 14:15:22 -0400
+  
+SyntaxError (/Users/karri/Git_GA/SEIR-Arete/unit_4/w10d05/homework/regftr/app/controllers/gifts_controller.rb:40: syntax error, unexpected integer literal, expecting `do' or '{' or '('
+...        reder json: {status 201, gift: @gift}
+...                            ^~~
+/Users/karri/Git_GA/SEIR-Arete/unit_4/w10d05/homework/regftr/app/controllers/gifts_controller.rb:43: syntax error, unexpected integer literal, expecting `do' or '{' or '('
+...       render json: {status 422, gift: @gift}
+...                            ^~~
+/Users/karri/Git_GA/SEIR-Arete/unit_4/w10d05/homework/regftr/app/controllers/gifts_controller.rb:53: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/gifts_controller.rb:40: syntax error, unexpected integer literal, expecting `do' or '{' or '('
+app/controllers/gifts_controller.rb:43: syntax error, unexpected integer literal, expecting `do' or '{' or '('
+app/controllers/gifts_controller.rb:53: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/gifts_controller.rb:40: syntax error, unexpected integer literal, expecting `do' or '{' or '('
+app/controllers/gifts_controller.rb:43: syntax error, unexpected integer literal, expecting `do' or '{' or '('
+app/controllers/gifts_controller.rb:53: syntax error, unexpected end-of-input, expecting `end'
+Started PUT "/gifts/2" for ::1 at 2020-09-19 14:15:52 -0400
+  
+SyntaxError (/Users/karri/Git_GA/SEIR-Arete/unit_4/w10d05/homework/regftr/app/controllers/gifts_controller.rb:40: syntax error, unexpected integer literal, expecting `do' or '{' or '('
+...        reder json: {status 201, gift: @gift}
+...                            ^~~
+/Users/karri/Git_GA/SEIR-Arete/unit_4/w10d05/homework/regftr/app/controllers/gifts_controller.rb:43: syntax error, unexpected integer literal, expecting `do' or '{' or '('
+...       render json: {status 422, gift: @gift}
+...                            ^~~
+/Users/karri/Git_GA/SEIR-Arete/unit_4/w10d05/homework/regftr/app/controllers/gifts_controller.rb:53: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/gifts_controller.rb:40: syntax error, unexpected integer literal, expecting `do' or '{' or '('
+app/controllers/gifts_controller.rb:43: syntax error, unexpected integer literal, expecting `do' or '{' or '('
+app/controllers/gifts_controller.rb:53: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/gifts_controller.rb:40: syntax error, unexpected integer literal, expecting `do' or '{' or '('
+app/controllers/gifts_controller.rb:43: syntax error, unexpected integer literal, expecting `do' or '{' or '('
+app/controllers/gifts_controller.rb:53: syntax error, unexpected end-of-input, expecting `end'
+Started PUT "/gifts/2" for ::1 at 2020-09-19 14:17:04 -0400
+Processing by GiftsController#update as */*
+  Parameters: {"gift"=>{"name"=>"Best buy gift card", "value"=>"99.99"}, "id"=>"2"}
+  [1m[36mGift Load (0.8ms)[0m  [1m[34mSELECT "gifts".* FROM "gifts" WHERE "gifts"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/gifts_controller.rb:37:in `update'
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gifts_controller.rb:38:in `update'
+  [1m[36mGift Update (0.8ms)[0m  [1m[33mUPDATE "gifts" SET "name" = $1, "value" = $2, "updated_at" = $3 WHERE "gifts"."id" = $4[0m  [["name", "Best buy gift card"], ["value", 99.99], ["updated_at", "2020-09-19 18:17:04.422813"], ["id", 2]]
+  ↳ app/controllers/gifts_controller.rb:38:in `update'
+  [1m[35m (3.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gifts_controller.rb:38:in `update'
+Completed 204 No Content in 55ms (ActiveRecord: 23.2ms | Allocations: 7337)
+
+
+Started POST "/gifts" for ::1 at 2020-09-19 14:20:53 -0400
+  
+SyntaxError (/Users/karri/Git_GA/SEIR-Arete/unit_4/w10d05/homework/regftr/app/controllers/gifts_controller.rb:52: syntax error, unexpected ':', expecting '}'
+        render json {status: 204}
+                           ^
+/Users/karri/Git_GA/SEIR-Arete/unit_4/w10d05/homework/regftr/app/controllers/gifts_controller.rb:61: syntax error, unexpected end-of-input, expecting `end'):
+  
+app/controllers/gifts_controller.rb:52: syntax error, unexpected ':', expecting '}'
+app/controllers/gifts_controller.rb:61: syntax error, unexpected end-of-input, expecting `end'
+app/controllers/gifts_controller.rb:52: syntax error, unexpected ':', expecting '}'
+app/controllers/gifts_controller.rb:61: syntax error, unexpected end-of-input, expecting `end'
+Started POST "/gifts" for ::1 at 2020-09-19 14:21:23 -0400
+Processing by GiftsController#create as */*
+  Parameters: {"gift"=>{"name"=>"Best buy gift card", "value"=>"99.99", "event"=>"Christmas", "gift_giver"=>"Co-Worker"}}
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gifts_controller.rb:25:in `create'
+  [1m[36mGift Create (1.1ms)[0m  [1m[32mINSERT INTO "gifts" ("name", "value", "event", "gift_giver", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["name", "Best buy gift card"], ["value", 99.99], ["event", "Christmas"], ["gift_giver", "Co-Worker"], ["created_at", "2020-09-19 18:21:23.281439"], ["updated_at", "2020-09-19 18:21:23.281439"]]
+  ↳ app/controllers/gifts_controller.rb:25:in `create'
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gifts_controller.rb:25:in `create'
+Completed 200 OK in 35ms (Views: 0.4ms | ActiveRecord: 15.1ms | Allocations: 6564)
+
+
+Started DELETE "/gifts/6" for ::1 at 2020-09-19 14:22:14 -0400
+Processing by GiftsController#destroy as */*
+  Parameters: {"id"=>"6"}
+  [1m[36mGift Load (0.8ms)[0m  [1m[34mSELECT "gifts".* FROM "gifts" WHERE "gifts"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/gifts_controller.rb:51:in `destroy'
+  [1m[35m (7.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/gifts_controller.rb:51:in `destroy'
+  [1m[36mGift Destroy (16.7ms)[0m  [1m[31mDELETE FROM "gifts" WHERE "gifts"."id" = $1[0m  [["id", 6]]
+  ↳ app/controllers/gifts_controller.rb:51:in `destroy'
+  [1m[35m (42.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/gifts_controller.rb:51:in `destroy'
+Completed 200 OK in 80ms (Views: 0.2ms | ActiveRecord: 67.4ms | Allocations: 2639)
+
+
+Started GET "/gifts/" for ::1 at 2020-09-19 14:22:49 -0400
+Processing by GiftsController#index as HTML
+  [1m[36mGift Load (4.8ms)[0m  [1m[34mSELECT "gifts".* FROM "gifts"[0m
+  ↳ app/controllers/gifts_controller.rb:8:in `index'
+Completed 200 OK in 10ms (Views: 5.1ms | ActiveRecord: 4.8ms | Allocations: 1517)
+
+
+Started GET "/gifts/" for ::1 at 2020-09-19 14:32:41 -0400
+Processing by GiftsController#index as HTML
+  [1m[36mGift Load (1.4ms)[0m  [1m[34mSELECT "gifts".* FROM "gifts" ORDER BY id ASC[0m
+  ↳ app/controllers/gifts_controller.rb:8:in `index'
+Completed 200 OK in 22ms (Views: 15.9ms | ActiveRecord: 1.4ms | Allocations: 5494)
+
+
+Started GET "/gifts/" for ::1 at 2020-09-19 17:57:14 -0400
+Processing by GiftsController#index as HTML
+  [1m[36mGift Load (2.0ms)[0m  [1m[34mSELECT "gifts".* FROM "gifts" ORDER BY id ASC[0m
+  ↳ app/controllers/gifts_controller.rb:8:in `index'
+Completed 200 OK in 36ms (Views: 27.7ms | ActiveRecord: 2.0ms | Allocations: 5514)
+
+
+Started GET "/random" for ::1 at 2020-09-19 17:57:26 -0400
+Processing by GiftsController#random as HTML
+  [1m[36mGift Load (0.8ms)[0m  [1m[34mSELECT "gifts".* FROM "gifts"[0m
+  ↳ app/controllers/gifts_controller.rb:59:in `random'
+Completed 200 OK in 6ms (Views: 1.1ms | ActiveRecord: 0.8ms | Allocations: 847)
+
+
+Started GET "/random" for ::1 at 2020-09-19 17:57:31 -0400
+Processing by GiftsController#random as HTML
+  [1m[36mGift Load (14.4ms)[0m  [1m[34mSELECT "gifts".* FROM "gifts"[0m
+  ↳ app/controllers/gifts_controller.rb:59:in `random'
+Completed 200 OK in 19ms (Views: 1.4ms | ActiveRecord: 14.4ms | Allocations: 846)
+
+
+Started GET "/random" for ::1 at 2020-09-19 17:57:32 -0400
+Processing by GiftsController#random as HTML
+  [1m[36mGift Load (0.7ms)[0m  [1m[34mSELECT "gifts".* FROM "gifts"[0m
+  ↳ app/controllers/gifts_controller.rb:59:in `random'
+Completed 200 OK in 4ms (Views: 0.6ms | ActiveRecord: 0.7ms | Allocations: 846)
+
+
+Started GET "/random" for ::1 at 2020-09-19 17:57:32 -0400
+Processing by GiftsController#random as HTML
+  [1m[36mGift Load (0.8ms)[0m  [1m[34mSELECT "gifts".* FROM "gifts"[0m
+  ↳ app/controllers/gifts_controller.rb:59:in `random'
+Completed 200 OK in 4ms (Views: 0.5ms | ActiveRecord: 0.8ms | Allocations: 846)
+
+
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2352089463693337305)[0m
+  [1m[35m (3.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to Useres (20200919222144)
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(2352089463693337305)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2352089463693337305)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20200919224848)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (64.4ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key)[0m
+  [1m[36mprimary::SchemaMigration Create (0.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200919224848"]]
+  [1m[35m (2.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.6ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2352089463693337305)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2352089463693337305)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20200919225441)
+  [1m[35m (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (47.8ms)[0m  [1m[35mCREATE TABLE "users" ("id" bigserial primary key, "first_name" character varying, "last_name" character varying, "nickname" character varying, "email" character varying, "created_at" timestamp(6) NOT NULL, "updated_at" timestamp(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.9ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200919225441"]]
+  [1m[35m (1.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.9ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2352089463693337305)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2352089463693337305)[0m
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddColumnToGifts (20200919230343)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (42.3ms)[0m  [1m[35mALTER TABLE "gifts" ADD "user_id" belongs_to[0m
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT pg_advisory_unlock(2352089463693337305)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT pg_try_advisory_lock(2352089463693337305)[0m
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to AddColumnToGifts (20200919230343)
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (40.6ms)[0m  [1m[35mALTER TABLE "gifts" ADD "user_id_id" bigint[0m
+  [1m[35m (9.1ms)[0m  [1m[35mCREATE  INDEX  "index_gifts_on_user_id_id" ON "gifts"  ("user_id_id")[0m
+  [1m[36mprimary::SchemaMigration Create (0.6ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ($1) RETURNING "version"[0m  [["version", "20200919230343"]]
+  [1m[35m (1.8ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.7ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 LIMIT $2[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT pg_advisory_unlock(2352089463693337305)[0m
+  [1m[35m (42.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (2.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
