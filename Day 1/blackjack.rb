@@ -92,6 +92,10 @@ def hand_total player
     total
 end
 
+def empty_hand player
+    player.hand = []
+end
+
 #=========================================
 #Game Play
 #=========================================
